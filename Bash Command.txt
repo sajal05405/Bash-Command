@@ -1,0 +1,272 @@
+1.Take a variable and print out that in Bash Script 
+
+
+name="Akash"
+echo "Welcome $name"
+
+Output 
+Welcome Akash
+
+
+1.Hello world print
+
+a="Hello"
+b="World"
+c=$a$b
+echo ${c:3:4}
+
+
+1.print 1 to 100  num diff is 10
+
+for i in {1..100..10}
+do 
+echo -n "$i"
+done
+
+1.Print 1 to 10
+
+
+for ((i=1; i<=10; i++))
+do
+
+echo $i
+
+done
+
+1.While loop
+
+while (( i<=10 ))
+do
+
+echo $i
+(( i++ ))
+done
+
+
+
+2. if statement or else do others
+
+#Simple If else in Bash
+
+echo -n "Please Enter your age : "
+read n
+
+if [ $n -lt 10 ]
+then
+    echo "You are really small.."
+else
+    echo "You are growing.."
+fi
+
+
+
+2.Even odd check
+
+
+#!/bin/bash
+for i in $(seq 10);do
+    if (( $i % 2 )); then
+        echo $i is odd
+    else
+        echo $i is even
+    fi
+done
+
+
+2.Even odd check
+
+
+
+
+echo -n "Enter numnber : "
+read n
+ 
+rem=$(( $n % 2 ))
+ 
+if [ $rem -eq 0 ]
+then
+  echo "$n is even number"
+else
+  echo "$n is odd number"
+fi
+
+
+
+
+
+3.Print 1 to 100 by for loop using Bash script [Bash Programming Language] 
+
+
+
+
+
+# Printing 1 to 100 using for loop
+
+for((i=1;i<=100;i++))
+do
+    echo $i
+done
+
+
+
+Using seq 
+for i in `seq 1 100`
+do
+    echo $i
+done
+
+
+
+
+
+4.Print 0 to 100 even numbers and odd numbers by for loop using Bash script [Bash Programming Language] 
+
+0 to 100 even numbers using Bash Scripting 
+
+
+# Printing 1 to 100 even numbers using for loop
+for((i=0;i<=100;i=i+2))
+do
+    echo $i
+done
+
+
+1 to 100 Odd Numbers using Bash scripting 
+
+
+# Printing 1 to 100 odd numbers using for loop
+for((i=1;i<=100;i=i+2))
+do
+    echo $i
+done
+
+
+
+
+
+5.Multiplication program upto 20 using for double for loop Bash scripting [Bash Programming Language] 
+
+
+# Multiplication Program 1 to 10 in Bash
+
+for((i=1;i<=20;i++))
+do
+    for((j=1;j<=10;j++))
+    do
+        echo $i "X" $j "=" $(($i*$j))
+    done
+    echo
+done
+
+
+
+
+
+6.Read a file name in Bash and check if file is exist and if file exist, then delete the file, otherwise create the file as new [Bash Programming Language] 
+
+search, create, delete a file using Bash Scripting 
+
+echo "Please Enter your File Name : "
+read file_name
+
+if [ -f $file_name ];
+    then  clear
+    rm $file_name
+    echo "File $file_name is deleted successfully"
+    
+else
+    clear
+    touch $file_name
+    echo "No file found for your search $file_name"
+fi
+
+echo "All files are Now : "
+ls
+
+
+
+7.Creating array, inserting value in the array, show the array values and delete the value by searching using Bash script [Bash Programming Language] 
+
+
+echo "How many numbers do you want to add in the array : "
+read num
+
+#Take value in the array and put it in a sum variable
+arr=()  #Empty Array
+sum=0
+
+for ((i=0;i<num;i++));
+do
+    echo "Array[$i] = "
+    read arr[$i]
+    sum = $((sum+arr[$i]))
+done
+
+echo "Summation Is : $sum"
+
+##
+#   Delete a value from array
+##
+
+echo "Please enter a value to delete from the array = "
+read delete_value;
+
+for ((i=0;i<num;i++));
+do
+    if [ $((arr[$i])) = $delete_value ]; then 
+        unset arr[$i]   #Delete using unset
+    fi
+done
+
+
+#Show final array
+echo  "Array is = ${arr[@]}"
+
+
+
+
+
+
+8.Reverse a Number using Bash script [Bash Programming Language] 
+
+n=123456
+rev=0
+
+while [ $n -gt 0 ]
+do
+    reminder=$(( $n % 10 ))
+    rev=$(( rev*10 + reminder  ))
+    n=$(( $n / 10 ))
+done
+
+echo $rev
+
+
+9.Reverse a number using bash script in one line : 
+
+n=123456
+echo $n | rev
+
+
+10.Prime Number check using Bash script [Bash Programming Language] 
+
+#! /bin/bash
+
+echo -n "Enter a number: "
+read num
+i=2
+
+while [ $i -lt $num ]
+do
+  if [ `expr $num % $i` -eq 0 ]
+  then
+      echo "$num is not a prime number"
+      echo "Since it is divisible by $i"
+      exit
+  fi
+  i=`expr $i + 1`
+done
+
+echo "$num is a prime number "
+
+
